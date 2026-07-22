@@ -1,0 +1,80 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-dark-950 text-slate-100 font-sans antialiased selection:bg-primary-500 selection:text-white;
+  }
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(21, 28, 44, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300 hover:border-primary-500/20 hover:shadow-glow;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-dark-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-700 rounded-full hover:bg-primary-500 transition-colors;
+}
+
+/* Leaflet Overrides */
+.leaflet-container {
+  background: #0b0f19 !important;
+  font-family: inherit;
+}
+
+.leaflet-bar a {
+  background-color: #1f293d !important;
+  color: #f1f5f9 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-bar a:hover {
+  background-color: #0ea5e9 !important;
+  color: #ffffff !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #151c2c !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px !important;
+}
+
+.leaflet-popup-tip {
+  background: #151c2c !important;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.6);
+  }
+}
+
+.glow-animation {
+  animation: pulse-glow 2s infinite ease-in-out;
+}
